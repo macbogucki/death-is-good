@@ -14,7 +14,7 @@ position = Vector2(575.75, 562.25)
 shape = SubResource("RectangleShape2D_vb525")
 
 [node name="Player" parent="StaticBody2D" instance=ExtResource("1_6ewr0")]
-position = Vector2(566, 378)
+position = Vector2(559, 296)
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 1.0

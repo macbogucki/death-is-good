@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx76owr1tqdcc"]
+
+[ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="1_6ewr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb525"]
+size = Vector2(1150.5, 168.5)
+
+[node name="TestowaMapa" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(575.75, 562.25)
+shape = SubResource("RectangleShape2D_vb525")
+
+[node name="Player" parent="StaticBody2D" instance=ExtResource("1_6ewr0")]
+position = Vector2(566, 378)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 477.0
+offset_right = 1152.0
+offset_bottom = 573.0

@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-
 const SPEED = 30.0
+
+@onready var anim = $AnimationPlayer
+
 var isMoveUpPossible = true
 var isMoveDownPossible = true
 var isMoveLeftPossible = true
@@ -10,24 +12,20 @@ var isInteractionPossible = true
 var moves = 10
 var destinationPosition = Vector2(0, 0)
 var isAnimationFinished = false
-#const JUMP_VELOCITY = -400.0
-@onready var anim = $AnimationPlayer
-enum states {IDLE = 0, MOVEUP = 1, MOVEDOWN = 2, MOVELEFT = 3, MOVERIGHT = 4, PICKUP = 5, DEATH = 6}
 var state = 0
 
+enum states {
+	IDLE = 0, 
+	MOVEUP = 1, 
+	MOVEDOWN = 2, 
+	MOVELEFT = 3, 
+	MOVERIGHT = 4, 
+	PICKUP = 5, 
+	DEATH = 6}
+
+
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
 
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var directionX := Input.get_axis("MoveLeft", "MoveRight")
-	#var directionY := Input.get_axis("MoveUp", "MoveDown")
 	var currentPosition = Vector2(self.position.x, self.position.y)
 	
 	match state:

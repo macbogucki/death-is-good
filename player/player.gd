@@ -5,7 +5,6 @@ const distanceInOneMove = 70
 @onready var anim = $AnimationPlayer
 
 var isInteractionPossible = true
-var moves = 10
 var destinationPosition = Vector2(0, 0)
 var isAnimationFinished = false
 var state = 0
@@ -21,17 +20,7 @@ enum states {
 	DEATH = 6}
 
 # these numbers should update with changing size of maps, currently they can const
-func isMoveUpPossible(destination: float):
-	return destination > 25
-	
-func isMoveDownPossible(destination: float):
-	return destination < 400
-	
-func isMoveLeftPossible(destination: float):
-	return destination > 200
-	
-func isMoveRightPossible(destination: float):
-	return destination < 575
+
 
 func _physics_process(delta: float) -> void:
 
@@ -45,23 +34,23 @@ func _physics_process(delta: float) -> void:
 			
 			if Input.is_action_pressed("MoveUp"):									
 				destinationPosition[1] = currentPosition[1] - distanceInOneMove
-				if isMoveUpPossible(destinationPosition[1]):
+				if game.isMoveUpPossible(destinationPosition[1]):
 					#print(destinationPosition)
 					state = states.MOVEUP
 					
 			if Input.is_action_pressed("MoveDown"):				
 				destinationPosition[1] = currentPosition[1] + distanceInOneMove
-				if isMoveDownPossible(destinationPosition[1]):
+				if game.isMoveDownPossible(destinationPosition[1]):
 					state = states.MOVEDOWN
 					
 			if Input.is_action_pressed("MoveLeft"):
 				destinationPosition[0] = currentPosition[0] - distanceInOneMove
-				if isMoveLeftPossible(destinationPosition[0]):
+				if game.isMoveLeftPossible(destinationPosition[0]):
 					state = states.MOVELEFT
 					
 			if Input.is_action_pressed("MoveRight"):
 				destinationPosition[0] = currentPosition[0] + distanceInOneMove
-				if isMoveRightPossible(destinationPosition[0]):
+				if game.isMoveRightPossible(destinationPosition[0]):
 					state = states.MOVERIGHT
 					
 			if Input.is_action_pressed("Interaction"):
@@ -72,29 +61,33 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -1 * SPEED
 			anim.play("WalkUp")
 			if destinationPosition[1] >= currentPosition[1]:
-				moves -= 1
-				state = states.IDLE
+				if isPlayerLive():
+					state = states.IDLE
+					game.decreaseMove()
 			
 		states.MOVEDOWN:
 			velocity.y = 1 * SPEED
 			anim.play("WalkDown")
 			if destinationPosition[1] <= currentPosition[1]:
-				moves -= 1
-				state = states.IDLE
+				if isPlayerLive():
+					state = states.IDLE
+					game.decreaseMove()
 			
 		states.MOVELEFT:
 			velocity.x = -1 * SPEED
 			anim.play("WalkLeft")	
 			if destinationPosition[0] >= currentPosition[0]:
-				moves -= 1
-				state = states.IDLE
+				if isPlayerLive():
+					state = states.IDLE
+					game.decreaseMove()
 			
 		states.MOVERIGHT:
 			velocity.x = 1 * SPEED
 			anim.play("WalkRight")
-			if destinationPosition[0] <= currentPosition[0]:
-				moves -= 1
-				state = states.IDLE
+			if destinationPosition[0] <= currentPosition[0]:	
+				if isPlayerLive():			
+					state = states.IDLE
+					game.decreaseMove()
 		
 		states.PICKUP:
 			anim.play("PickUp")
@@ -103,18 +96,27 @@ func _physics_process(delta: float) -> void:
 				isAnimationFinished = false
 		
 		states.DEATH:
+			velocity.x = 0
+			velocity.y = 0
 			anim.play("Death")
 			if isAnimationFinished:
 				state = states.IDLE
 				isAnimationFinished = false
+				game.changeLevel()
 			
-	if moves == 0:
+	if game.moves == 0:
 		velocity.x = 0
 		velocity.y = 0
 		#game over
 		#state = states.DEATH
-		
+			
 	move_and_slide()
+
+func isPlayerLive():
+	if game.isPlayerLive() == false:
+		state = states.DEATH
+		return false
+	return true
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	isAnimationFinished = true

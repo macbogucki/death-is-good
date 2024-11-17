@@ -1,0 +1,216 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx76owr1tqdcc"]
+
+[ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="1_0k004"]
+[ext_resource type="PackedScene" uid="uid://dicuwghykwi8c" path="res://bomb.tscn" id="2_eur86"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rwrbn"]
+
+[node name="TestowaMapa" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Player" parent="StaticBody2D" instance=ExtResource("1_0k004")]
+position = Vector2(383, 216)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(350, 175)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(200, 175)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(275, 175)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(425, 175)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(500, 175)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(350, 25)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(200, 25)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(275, 25)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(425, 25)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D15" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(500, 25)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D16" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(350, 250)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D17" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(200, 250)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D18" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(275, 250)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D19" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(425, 250)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D20" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(500, 250)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D21" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(350, 325)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D22" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(200, 325)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D23" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(275, 325)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D24" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(425, 325)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D25" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(500, 325)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(350, 100)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(200, 100)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(275, 100)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(425, 100)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(500, 100)
+texture = SubResource("CanvasTexture_rwrbn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 74, 74)
+
+[node name="Bomb" parent="." instance=ExtResource("2_eur86")]
+position = Vector2(542, 63)

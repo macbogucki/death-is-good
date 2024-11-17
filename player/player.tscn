@@ -281,7 +281,6 @@ animations = [{
 [sub_resource type="Animation" id="Animation_jemxo"]
 resource_name = "Death"
 length = 0.5
-loop_mode = 2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false

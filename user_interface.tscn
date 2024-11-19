@@ -92,7 +92,7 @@ offset_right = 704.0
 offset_bottom = 217.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
-text = "Nazwa tej gry"
+text = "Title of this game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -395,24 +395,22 @@ offset_bottom = 139.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Music"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="sfx_label" type="Label" parent="Ustawienia/Settings"]
 layout_mode = 0
-offset_left = 96.0
+offset_left = 112.0
 offset_top = 160.0
-offset_right = 292.0
+offset_right = 308.0
 offset_bottom = 202.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Sound Effects"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="music_slider" type="HSlider" parent="Ustawienia/Settings"]
 layout_mode = 0
-offset_left = 300.0
+offset_left = 340.0
 offset_top = 112.0
 offset_right = 650.0
 offset_bottom = 128.0
@@ -422,13 +420,35 @@ max_value = 6.0
 
 [node name="sfx_slider" type="HSlider" parent="Ustawienia/Settings"]
 layout_mode = 0
-offset_left = 300.0
+offset_left = 340.0
 offset_top = 168.0
 offset_right = 650.0
 offset_bottom = 184.0
 focus_mode = 0
 min_value = -40.0
 max_value = 6.0
+
+[node name="language_button" type="OptionButton" parent="Ustawienia/Settings"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 216.0
+offset_right = 647.0
+offset_bottom = 247.0
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_1/text = "Polish"
+popup/item_1/id = 1
+
+[node name="language_label" type="Label" parent="Ustawienia/Settings"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 216.0
+offset_right = 229.0
+offset_bottom = 251.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Language"
 
 [node name="Controls" type="Control" parent="Ustawienia"]
 visible = false
@@ -707,6 +727,7 @@ texture_focused = ExtResource("5_s1ai8")
 [connection signal="pressed" from="Ustawienia/contols_button" to="." method="_on_contols_button_pressed"]
 [connection signal="value_changed" from="Ustawienia/Settings/music_slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Ustawienia/Settings/sfx_slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="item_selected" from="Ustawienia/Settings/language_button" to="." method="_on_language_button_item_selected"]
 [connection signal="pressed" from="Ustawienia/Controls/up_bind/up_bind_button" to="." method="_on_up_bind_button_pressed"]
 [connection signal="pressed" from="Ustawienia/Controls/down_bind/down_bind_button" to="." method="_on_down_bind_button_pressed"]
 [connection signal="pressed" from="Ustawienia/Controls/left_bind/left_bind_button" to="." method="_on_left_bind_button_pressed"]

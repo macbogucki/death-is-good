@@ -4,6 +4,7 @@ extends Control
 @onready var notabandoned = false
 @onready var ustawienia_open = false
 @onready var game_container = $GameContainer
+@onready var lang = "english"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -42,35 +43,40 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 func _on_up_bind_button_pressed() -> void:
 	notabandoned = true
-	$Ustawienia/Controls/change_bind/Label.text = "Press a new key for move up action"
+	if lang == "english": $Ustawienia/Controls/change_bind/Label.text = "Press a new key for move up action"
+	else: $Ustawienia/Controls/change_bind/Label.text = "Wybierz nowy klawisz dla akcji idź w górę"
 	$Ustawienia/Controls/change_bind.show()
 	bind_to_change="MoveUp"
 
 
 func _on_down_bind_button_pressed() -> void:
 	notabandoned = true
-	$Ustawienia/Controls/change_bind/Label.text = "Press a new key for move down action"
+	if lang == "english": $Ustawienia/Controls/change_bind/Label.text = "Press a new key for move down action"
+	else: $Ustawienia/Controls/change_bind/Label.text = "Wybierz nowy klawisz dla akcji idź w dół"
 	$Ustawienia/Controls/change_bind.show()
 	bind_to_change="MoveDown"
 
 
 func _on_left_bind_button_pressed() -> void:
 	notabandoned = true
-	$Ustawienia/Controls/change_bind/Label.text = "Press a new key for move left action"
+	if lang == "english": $Ustawienia/Controls/change_bind/Label.text = "Press a new key for move left action"
+	else: $Ustawienia/Controls/change_bind/Label.text = "Wybierz nowy klawisz dla akcji idź w lewo"
 	$Ustawienia/Controls/change_bind.show()
 	bind_to_change="MoveLeft"
 
 
 func _on_right_bind_button_pressed() -> void:
 	notabandoned = true
-	$Ustawienia/Controls/change_bind/Label.text = "Press a new key for move right action"
+	if lang == "english": $Ustawienia/Controls/change_bind/Label.text = "Press a new key for move right action"
+	else: $Ustawienia/Controls/change_bind/Label.text = "Wybierz nowy klawisz dla akcji idź w prawo"
 	$Ustawienia/Controls/change_bind.show()
 	bind_to_change="MoveRight"
 
 
 func _on_interaction_bind_button_pressed() -> void:
 	notabandoned = true
-	$Ustawienia/Controls/change_bind/Label.text = "Press a new key for interaction action"
+	if lang == "english": $Ustawienia/Controls/change_bind/Label.text = "Press a new key for interaction action"
+	else: $Ustawienia/Controls/change_bind/Label.text = "Wybierz nowy klawisz dla akcji interakcja"
 	$Ustawienia/Controls/change_bind.show()
 	bind_to_change="Interaction"
 
@@ -174,3 +180,50 @@ func _on_wroc_pressed() -> void:
 		child.queue_free()
 	$wroc.hide()
 	
+
+
+func _on_language_button_item_selected(index: int) -> void:
+	if index == 1:
+		lang = "polish"
+		$menu_start/nazwa_gry.text = "Nazwa tej gry"
+		$menu_levels/Label.text = "Wybierz poziom"
+		$Ustawienia/settings_button2.text = "Ustawienia"
+		$Ustawienia/contols_button.text = "Sterowanie"
+		$Ustawienia/Settings/music_label.text = "Muzyka"
+		$Ustawienia/Settings/sfx_label.text = "Efekty dźwiękowe"
+		$Ustawienia/Settings/language_label.text = "Język"
+		$Ustawienia/Settings/language_button.set_item_text(0, "Angielski")
+		$Ustawienia/Settings/language_button.set_item_text(1, "Polski")
+		$Ustawienia/close_button.text = "Zamknij"
+		$Ustawienia/Controls/up_bind/Label_up_bind.text = "Idź w górę"
+		$Ustawienia/Controls/up_bind/up_bind_button.text = "Zmień"
+		$Ustawienia/Controls/down_bind/Label_down_bind.text = "Idź w dół"
+		$Ustawienia/Controls/down_bind/down_bind_button.text = "Zmień"
+		$Ustawienia/Controls/right_bind/Label_right_bind.text = "Idź w prawo"
+		$Ustawienia/Controls/right_bind/right_bind_button.text = "Zmień"
+		$Ustawienia/Controls/left_bind/Label_left_bind.text = "Idź w lewo"
+		$Ustawienia/Controls/left_bind/left_bind_button.text = "Zmień"
+		$Ustawienia/Controls/interaction_bind/Label_interaction.text = "Interakcja"
+		$Ustawienia/Controls/interaction_bind/interaction_bind_button.text = "Zmień"
+	else:
+		lang = "english"
+		$menu_start/nazwa_gry.text = "Title of this game"
+		$menu_levels/Label.text = "Choose level"
+		$Ustawienia/settings_button2.text = "Settings"
+		$Ustawienia/contols_button.text = "Controls"
+		$Ustawienia/Settings/music_label.text = "Music"
+		$Ustawienia/Settings/sfx_label.text = "Sound effects"
+		$Ustawienia/Settings/language_label.text = "Language"
+		$Ustawienia/Settings/language_button.set_item_text(0, "English")
+		$Ustawienia/Settings/language_button.set_item_text(1, "Polish")
+		$Ustawienia/close_button.text = "Close"
+		$Ustawienia/Controls/up_bind/Label_up_bind.text = "Move up"
+		$Ustawienia/Controls/up_bind/up_bind_button.text = "Change"
+		$Ustawienia/Controls/down_bind/Label_down_bind.text = "Move down"
+		$Ustawienia/Controls/down_bind/down_bind_button.text = "Change"
+		$Ustawienia/Controls/right_bind/Label_right_bind.text = "Move right"
+		$Ustawienia/Controls/right_bind/right_bind_button.text = "Change"
+		$Ustawienia/Controls/left_bind/Label_left_bind.text = "Move left"
+		$Ustawienia/Controls/left_bind/left_bind_button.text = "Change"
+		$Ustawienia/Controls/interaction_bind/Label_interaction.text = "Interaction"
+		$Ustawienia/Controls/interaction_bind/interaction_bind_button.text = "Change"

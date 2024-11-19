@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=4 uid="uid://bx44pdvaqe3lc"]
 
-[ext_resource type="Texture2D" uid="uid://fui6wv8r2n63" path="res://assets/tiles/grassbackground.svg" id="1_ea2oe"]
-[ext_resource type="Texture2D" uid="uid://etxk527sv3bo" path="res://assets/tiles/grass.png" id="2_wsnc3"]
-[ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="3_n38f0"]
-[ext_resource type="PackedScene" uid="uid://bdttxxc7r53yu" path="res://bush.tscn" id="4_8aohj"]
-[ext_resource type="PackedScene" uid="uid://d1tcmgq5n2b82" path="res://pit.tscn" id="5_1id3s"]
+[ext_resource type="Texture2D" uid="uid://fui6wv8r2n63" path="res://assets/tiles/grassbackground.svg" id="1_q8iuq"]
+[ext_resource type="Texture2D" uid="uid://etxk527sv3bo" path="res://assets/tiles/grass.png" id="2_j3vmt"]
+[ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="3_oap44"]
+[ext_resource type="PackedScene" uid="uid://bdttxxc7r53yu" path="res://bush.tscn" id="4_8wj1p"]
+[ext_resource type="PackedScene" uid="uid://d1tcmgq5n2b82" path="res://pit.tscn" id="5_pd2ee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aq51g"]
-texture = ExtResource("2_wsnc3")
+texture = ExtResource("2_j3vmt")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -27,7 +27,7 @@ z_index = -5
 texture_repeat = 2
 position = Vector2(544, 288)
 scale = Vector2(2, 2)
-texture = ExtResource("1_ea2oe")
+texture = ExtResource("1_q8iuq")
 region_enabled = true
 region_rect = Rect2(0, 0, 700, 500)
 
@@ -37,7 +37,7 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAAAAAIAAAAAAAEAAAABAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAACAAAAAAACAAIAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAABAAEAAAABAAUAAAABAAAAAAACAAUAAAAAAAEAAAADAAUAAAABAAAAAAADAAQAAAAAAAEAAAACAAQAAAAAAAEAAAABAAQAAAAAAAEAAAAAAAUAAAACAAAAAAAEAAUAAAACAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAACAAAAAAAHAAUAAAABAAEAAAAHAAQAAAAAAAEAAAAHAAMAAAABAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAACAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAABAAEAAAAFAAAAAAAAAAEAAAAEAAAAAAABAAEAAAADAAAAAAABAAEAAAADAAEAAAACAAAAAAAEAAEAAAACAAAAAAAFAAEAAAACAAAAAAAEAAIAAAACAAAAAAADAAIAAAAAAAAAAAADAAMAAAABAAAAAAAEAAMAAAACAAAAAAAFAAMAAAAAAAEAAAAFAAIAAAAAAAEAAAAGAAIAAAACAAAAAAAGAAMAAAAAAAEAAAAEAAQAAAAAAAAAAAAFAAQAAAABAAEAAAAGAAQAAAAAAAAAAAAHAAAAAAACAAAAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAAIAAIAAAABAAAAAAAIAAMAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_qgdxh")
 
-[node name="Player" parent="." instance=ExtResource("3_n38f0")]
+[node name="Player" parent="." instance=ExtResource("3_oap44")]
 y_sort_enabled = true
 position = Vector2(536, 160)
 
@@ -51,77 +51,77 @@ idziesz góra zamiast labiryntem"
 
 [node name="Elements" type="Node2D" parent="."]
 
-[node name="bush4" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush4" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(544, 216)
 
-[node name="bush" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(416, 152)
 
-[node name="bush2" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush2" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(416, 280)
 
-[node name="bush3" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush3" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(544, 280)
 
-[node name="bush5" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush5" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(544, 344)
 
-[node name="bush6" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush6" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(416, 216)
 
-[node name="bush7" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush7" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(352, 88)
 
-[node name="bush19" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush19" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(160, 152)
 
-[node name="bush18" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush18" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(288, 88)
 
-[node name="bush8" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush8" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(224, 88)
 
-[node name="bush9" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush9" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(160, 288)
 
-[node name="bush23" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush23" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(32, 88)
 
-[node name="bush24" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush24" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(288, 344)
 
-[node name="bush10" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush10" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(288, 216)
 
-[node name="bush11" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush11" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(288, 280)
 
-[node name="bush21" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush21" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(160, 216)
 
-[node name="bush12" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush12" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(32, 344)
 
-[node name="bush13" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush13" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(32, 280)
 
-[node name="bush14" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush14" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(32, 216)
 
-[node name="bush15" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush15" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(32, 158)
 
-[node name="bush16" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush16" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(160, 88)
 
-[node name="bush17" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush17" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(480, 88)
 
-[node name="bush22" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush22" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(544, 88)
 
-[node name="bush20" parent="Elements" instance=ExtResource("4_8aohj")]
+[node name="bush20" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(416, 88)
 
-[node name="Pit" parent="Elements" instance=ExtResource("5_1id3s")]
+[node name="Pit" parent="Elements" instance=ExtResource("5_pd2ee")]
 position = Vector2(32, 32)

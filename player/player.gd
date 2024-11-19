@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 200.0
-const distanceInOneMove = 70
+const distanceInOneMove = 64
 @onready var anim = $AnimationPlayer
 
 var isInteractionPossible = true

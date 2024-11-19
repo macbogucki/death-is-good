@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=4 uid="uid://dfc2nytmi702y"]
 
-[ext_resource type="Texture2D" uid="uid://etxk527sv3bo" path="res://assets/tiles/grass.png" id="1_d5d83"]
-[ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="2_5cyli"]
-[ext_resource type="Texture2D" uid="uid://fui6wv8r2n63" path="res://assets/tiles/grassbackground.svg" id="3_bpox5"]
-[ext_resource type="PackedScene" uid="uid://b87x8sqwvgkag" path="res://spikes.tscn" id="4_c4rpn"]
-[ext_resource type="PackedScene" uid="uid://bdttxxc7r53yu" path="res://bush.tscn" id="5_42df4"]
+[ext_resource type="Texture2D" uid="uid://etxk527sv3bo" path="res://assets/tiles/grass.png" id="1_sjps3"]
+[ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="2_mhl0b"]
+[ext_resource type="Texture2D" uid="uid://fui6wv8r2n63" path="res://assets/tiles/grassbackground.svg" id="3_6ltxh"]
+[ext_resource type="PackedScene" uid="uid://b87x8sqwvgkag" path="res://spikes.tscn" id="4_5jll0"]
+[ext_resource type="PackedScene" uid="uid://bdttxxc7r53yu" path="res://bush.tscn" id="5_yxyua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aq51g"]
-texture = ExtResource("1_d5d83")
+texture = ExtResource("1_sjps3")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -27,7 +27,7 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAABAAEAAAABAAAAAAABAAIAAAACAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAACAAQAAAACAAAAAAACAAMAAAAAAAAAAAACAAIAAAACAAAAAAACAAEAAAAAAAAAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAAAAAADAAQAAAACAAAAAAAEAAQAAAABAAAAAAAEAAMAAAACAAAAAAAEAAIAAAABAAEAAAAEAAEAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_qgdxh")
 
-[node name="Player" parent="." instance=ExtResource("2_5cyli")]
+[node name="Player" parent="." instance=ExtResource("2_mhl0b")]
 y_sort_enabled = true
 position = Vector2(280, 160)
 
@@ -47,29 +47,29 @@ z_index = -5
 texture_repeat = 2
 position = Vector2(544, 288)
 scale = Vector2(2, 2)
-texture = ExtResource("3_bpox5")
+texture = ExtResource("3_6ltxh")
 region_enabled = true
 region_rect = Rect2(0, 0, 700, 500)
 
-[node name="Spikes" parent="Elements" instance=ExtResource("4_c4rpn")]
+[node name="Spikes" parent="Elements" instance=ExtResource("4_5jll0")]
 position = Vector2(96, 288)
 
-[node name="bush" parent="Elements" instance=ExtResource("5_42df4")]
+[node name="bush" parent="Elements" instance=ExtResource("5_yxyua")]
 position = Vector2(288, 216)
 
-[node name="bush2" parent="Elements" instance=ExtResource("5_42df4")]
+[node name="bush2" parent="Elements" instance=ExtResource("5_yxyua")]
 position = Vector2(288, 280)
 
-[node name="bush3" parent="Elements" instance=ExtResource("5_42df4")]
+[node name="bush3" parent="Elements" instance=ExtResource("5_yxyua")]
 position = Vector2(96, 216)
 
-[node name="bush4" parent="Elements" instance=ExtResource("5_42df4")]
+[node name="bush4" parent="Elements" instance=ExtResource("5_yxyua")]
 position = Vector2(160, 216)
 
-[node name="bush5" parent="Elements" instance=ExtResource("5_42df4")]
+[node name="bush5" parent="Elements" instance=ExtResource("5_yxyua")]
 position = Vector2(160, 152)
 
-[node name="bush6" parent="Elements" instance=ExtResource("5_42df4")]
+[node name="bush6" parent="Elements" instance=ExtResource("5_yxyua")]
 position = Vector2(96, 152)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

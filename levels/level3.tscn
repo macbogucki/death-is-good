@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=4 uid="uid://cxsf7lehgjhm0"]
+
+[ext_resource type="Texture2D" uid="uid://fui6wv8r2n63" path="res://assets/tiles/grassbackground.svg" id="1_a7fja"]
+[ext_resource type="Texture2D" uid="uid://etxk527sv3bo" path="res://assets/tiles/grass.png" id="2_e6x4m"]
+[ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="3_s4vka"]
+[ext_resource type="PackedScene" uid="uid://bdttxxc7r53yu" path="res://bush.tscn" id="4_0mwx6"]
+[ext_resource type="PackedScene" uid="uid://d1tcmgq5n2b82" path="res://pit.tscn" id="5_q4lfd"]
+[ext_resource type="PackedScene" uid="uid://b87x8sqwvgkag" path="res://spikes.tscn" id="6_dljdv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aq51g"]
+texture = ExtResource("2_e6x4m")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qgdxh"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_aq51g")
+
+[node name="Level3" type="Node2D"]
+
+[node name="Backgound" type="Sprite2D" parent="."]
+modulate = Color(0.667912, 0.867834, 0.978818, 1)
+z_index = -5
+texture_repeat = 2
+position = Vector2(544, 288)
+scale = Vector2(2, 2)
+texture = ExtResource("1_a7fja")
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 500)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -3
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAACAAEAAAAAAAEAAAADAAIAAAAAAAEAAAAEAAIAAAACAAAAAAAEAAEAAAACAAAAAAADAAEAAAACAAAAAAACAAIAAAACAAAAAAADAAMAAAACAAAAAAAEAAMAAAACAAAAAAAFAAMAAAACAAAAAAAGAAMAAAACAAAAAAAGAAIAAAACAAAAAAAGAAEAAAACAAAAAAAFAAEAAAACAAAAAAAFAAIAAAAAAAEAAAAHAAEAAAACAAAAAAAHAAIAAAACAAAAAAAHAAMAAAAAAAEAAAACAAMAAAACAAAAAAAIAAEAAAAAAAEAAAAIAAIAAAACAAAAAAAIAAMAAAACAAAAAAAFAAQAAAAAAAEAAAACAAQAAAACAAAAAAADAAQAAAACAAAAAAAEAAQAAAACAAAAAAAGAAQAAAACAAAAAAAHAAQAAAACAAAAAAAIAAQAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_qgdxh")
+
+[node name="Player" parent="." instance=ExtResource("3_s4vka")]
+y_sort_enabled = true
+position = Vector2(344, 288)
+
+[node name="Elements" type="Node2D" parent="."]
+
+[node name="bush" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(288, 216)
+
+[node name="bush17" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(96, 32)
+
+[node name="bush18" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(48, 280)
+
+[node name="bush19" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(544, 368)
+
+[node name="bush20" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(664, 64)
+
+[node name="bush3" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(288, 152)
+
+[node name="bush4" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(352, 216)
+
+[node name="bush5" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(416, 216)
+
+[node name="bush6" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(416, 152)
+
+[node name="bush7" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(416, 88)
+
+[node name="bush8" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(352, 88)
+
+[node name="bush9" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(288, 88)
+
+[node name="bush10" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(224, 88)
+
+[node name="bush11" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(160, 152)
+
+[node name="bush12" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(160, 216)
+
+[node name="bush21" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(160, 280)
+
+[node name="bush22" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(224, 280)
+
+[node name="bush23" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(288, 280)
+
+[node name="bush24" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(416, 280)
+
+[node name="bush25" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(480, 280)
+
+[node name="bush26" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(544, 280)
+
+[node name="bush13" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(544, 216)
+
+[node name="bush14" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(544, 152)
+
+[node name="bush15" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(480, 152)
+
+[node name="bush16" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(480, 88)
+
+[node name="bush2" parent="Elements" instance=ExtResource("4_0mwx6")]
+position = Vector2(224, 216)
+
+[node name="Pit" parent="Elements" instance=ExtResource("5_q4lfd")]
+position = Vector2(160, 96)
+
+[node name="Spikes" parent="Elements" instance=ExtResource("6_dljdv")]
+position = Vector2(544, 96)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 600.0
+offset_top = 144.0
+offset_right = 792.0
+offset_bottom = 480.0
+text = "9 ruchów
+\"sztuka wyboru\"
+wybranie tej opcji co mniej ruchów zabierze"

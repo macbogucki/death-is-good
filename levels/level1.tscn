@@ -1,216 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx76owr1tqdcc"]
+[gd_scene load_steps=8 format=4 uid="uid://cl5ic51vn4x1t"]
 
 [ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="1_0k004"]
-[ext_resource type="PackedScene" uid="uid://bj5yjefg46kne" path="res://bomb.tscn" id="2_eur86"]
+[ext_resource type="Texture2D" uid="uid://fui6wv8r2n63" path="res://assets/tiles/grassbackground.svg" id="1_isbve"]
+[ext_resource type="Texture2D" uid="uid://etxk527sv3bo" path="res://assets/tiles/grass.png" id="2_nuttt"]
+[ext_resource type="PackedScene" uid="uid://d1tcmgq5n2b82" path="res://pit.tscn" id="3_6aoyo"]
+[ext_resource type="PackedScene" uid="uid://bdttxxc7r53yu" path="res://bush.tscn" id="5_fbqkq"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_rwrbn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aq51g"]
+texture = ExtResource("2_nuttt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
 
-[node name="TestowaMapa" type="Node2D"]
+[sub_resource type="TileSet" id="TileSet_qgdxh"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_aq51g")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Level1" type="Node2D"]
 
-[node name="Player" parent="StaticBody2D" instance=ExtResource("1_0k004")]
-position = Vector2(383, 216)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(350, 175)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
+[node name="Backgound" type="Sprite2D" parent="."]
+modulate = Color(0.667912, 0.867834, 0.978818, 1)
+z_index = -5
+texture_repeat = 2
+position = Vector2(544, 288)
+scale = Vector2(2, 2)
+texture = ExtResource("1_isbve")
 region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
+region_rect = Rect2(0, 0, 700, 500)
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(200, 175)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAAAAEAAAABAAEAAAABAAEAAAABAAAAAAACAAEAAAAAAAAAAAACAAIAAAABAAEAAAABAAIAAAABAAEAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAABAAMAAAABAAAAAAACAAMAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAAAAAAEAAMAAAABAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_qgdxh")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(275, 175)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
+[node name="Pit" parent="." instance=ExtResource("3_6aoyo")]
+position = Vector2(288, 160)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(425, 175)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
+[node name="Player" parent="." instance=ExtResource("1_0k004")]
+position = Vector2(24, 160)
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(500, 175)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
+[node name="bush" parent="." instance=ExtResource("5_fbqkq")]
+position = Vector2(32, -32)
 
-[node name="Sprite2D11" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(350, 25)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
+[node name="bush2" parent="." instance=ExtResource("5_fbqkq")]
+position = Vector2(352, 32)
 
-[node name="Sprite2D12" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(200, 25)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
+[node name="bush3" parent="." instance=ExtResource("5_fbqkq")]
+position = Vector2(-32, 288)
 
-[node name="Sprite2D13" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(275, 25)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D14" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(425, 25)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D15" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(500, 25)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D16" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(350, 250)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D17" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(200, 250)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D18" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(275, 250)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D19" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(425, 250)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D20" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(500, 250)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D21" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(350, 325)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D22" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(200, 325)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D23" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(275, 325)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D24" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(425, 325)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D25" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(500, 325)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(350, 100)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D7" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(200, 100)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D8" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(275, 100)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D9" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(425, 100)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Sprite2D10" type="Sprite2D" parent="."]
-show_behind_parent = true
-position = Vector2(500, 100)
-texture = SubResource("CanvasTexture_rwrbn")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 74, 74)
-
-[node name="Bomb" parent="." instance=ExtResource("2_eur86")]
-position = Vector2(542, 63)
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 472.0
+offset_top = 80.0
+offset_right = 664.0
+offset_bottom = 416.0
+text = "5 ruchów
+bardzo prosty lvl wprowadzający mechanikę że gościu musi umrzeć"

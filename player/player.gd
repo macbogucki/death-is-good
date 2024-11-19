@@ -9,7 +9,6 @@ var destinationPosition = Vector2(0, 0)
 var isAnimationFinished = false
 var state = 0
 
-
 enum states {
 	IDLE = 0, 
 	MOVEUP = 1, 
@@ -107,6 +106,7 @@ func _physics_process(delta: float) -> void:
 	if game.moves == 0:
 		velocity.x = 0
 		velocity.y = 0
+		game.gameover()
 		#game over
 		#state = states.DEATH
 			

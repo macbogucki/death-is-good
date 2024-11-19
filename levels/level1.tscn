@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx76owr1tqdcc"]
 
 [ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="1_0k004"]
-[ext_resource type="PackedScene" uid="uid://dicuwghykwi8c" path="res://bomb.tscn" id="2_eur86"]
+[ext_resource type="PackedScene" uid="uid://bj5yjefg46kne" path="res://bomb.tscn" id="2_eur86"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rwrbn"]
 

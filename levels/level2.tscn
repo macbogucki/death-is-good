@@ -1,10 +1,51 @@
+<<<<<<< HEAD:levels/level2.tscn
 [gd_scene load_steps=3 format=3 uid="uid://ry8jncqe0kth"]
 
 [ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="1_tqnld"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://cx76owr1tqdcc"]
+
+[ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="1_6ewr0"]
+[ext_resource type="Texture2D" uid="uid://cic8ecl107drj" path="res://assets/player/berserker.png" id="2_ncqn3"]
+>>>>>>> poleksiak:testowa_mapa.tscn
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rwrbn"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_267wn"]
+atlas = ExtResource("2_ncqn3")
+region = Rect2(0, 0, 40, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5gj5"]
+atlas = ExtResource("2_ncqn3")
+region = Rect2(40, 0, 40, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e84hq"]
+atlas = ExtResource("2_ncqn3")
+region = Rect2(0, 70, 40, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkfyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_267wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5gj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_267wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e84hq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="TestowaMapa" type="Node2D"]
+
+[node name="Grass" type="Sprite2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -210,3 +251,9 @@ texture = SubResource("CanvasTexture_rwrbn")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 74, 74)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(388.75, 222)
+scale = Vector2(9.2625, 3)
+sprite_frames = SubResource("SpriteFrames_vkfyj")
+autoplay = "default"

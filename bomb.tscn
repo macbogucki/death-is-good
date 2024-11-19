@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dicuwghykwi8c"]
+[gd_scene load_steps=4 format=3 uid="uid://bj5yjefg46kne"]
 
 [ext_resource type="Script" path="res://bomb.gd" id="1_76so3"]
 [ext_resource type="Texture2D" uid="uid://6531nn63pgaw" path="res://assets/bomba.png" id="2_8co0x"]

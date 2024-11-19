@@ -3,23 +3,31 @@ extends Node
 var moves = 10
 var level = 1
 var isPlayerAlive = true
-
+var unlocked = 1
+@onready var main_scene = get_tree().current_scene
 
 func decreaseMove():
 	moves -= 1
 
+func gameover():
+	main_scene._on_wroc_pressed()
+	moves=10
+	
+	
 func newGame():
-	get_tree().change_scene_to_file("res://levels/level1.tscn")
+	level = 1
+	main_scene.load_new_scene()
 	moves = 10
 	
 func changeLevel():
 	isPlayerAlive = true
+	if unlocked == level: 
+		unlocked += 1
 	level += 1
+	main_scene.load_new_scene()
 	if level == 1:
-		get_tree().change_scene_to_file("res://levels/level1.tscn")
 		moves = 10
 	elif level == 2:
-		get_tree().change_scene_to_file("res://levels/level2.tscn")
 		moves = 10
 	# end of game
 	#else:
@@ -42,3 +50,4 @@ func isMoveLeftPossible(destination: float):
 	
 func isMoveRightPossible(destination: float):
 	return destination < 575
+	

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://dfc2nytmi702y"]
+[gd_scene load_steps=10 format=4 uid="uid://dfc2nytmi702y"]
 
 [ext_resource type="Texture2D" uid="uid://etxk527sv3bo" path="res://assets/tiles/grass.png" id="1_sjps3"]
 [ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="2_mhl0b"]
 [ext_resource type="Texture2D" uid="uid://fui6wv8r2n63" path="res://assets/tiles/grassbackground.svg" id="3_6ltxh"]
-[ext_resource type="PackedScene" uid="uid://b87x8sqwvgkag" path="res://spikes.tscn" id="4_5jll0"]
+[ext_resource type="Script" path="res://spikesHidden.gd" id="5_rgg46"]
 [ext_resource type="PackedScene" uid="uid://bdttxxc7r53yu" path="res://bush.tscn" id="5_yxyua"]
+[ext_resource type="PackedScene" uid="uid://byq0fy467vu7s" path="res://spikesHidden.tscn" id="6_ca0ot"]
+[ext_resource type="PackedScene" uid="uid://b7digp2eeivmk" path="res://lever.tscn" id="6_dybse"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aq51g"]
 texture = ExtResource("1_sjps3")
@@ -34,14 +36,6 @@ position = Vector2(280, 160)
 
 [node name="Elements" type="Node2D" parent="."]
 
-[node name="Dzwignia" type="Label" parent="Elements"]
-offset_left = 72.0
-offset_top = 80.0
-offset_right = 113.0
-offset_bottom = 103.0
-text = "Lever
-"
-
 [node name="Backgound" type="Sprite2D" parent="Elements"]
 modulate = Color(0.667912, 0.867834, 0.978818, 1)
 z_index = -5
@@ -51,9 +45,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_6ltxh")
 region_enabled = true
 region_rect = Rect2(0, 0, 700, 500)
-
-[node name="Spikes" parent="Elements" instance=ExtResource("4_5jll0")]
-position = Vector2(96, 288)
 
 [node name="bush" parent="Elements" instance=ExtResource("5_yxyua")]
 position = Vector2(288, 216)
@@ -73,7 +64,12 @@ position = Vector2(160, 152)
 [node name="bush6" parent="Elements" instance=ExtResource("5_yxyua")]
 position = Vector2(96, 152)
 
+[node name="Lever" parent="Elements" instance=ExtResource("6_dybse")]
+position = Vector2(99, 92)
+scale = Vector2(2, 2)
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 600.0
 offset_top = 144.0
 offset_right = 792.0
@@ -82,3 +78,8 @@ text = "9 ruchów
 aktywowanie dzwigni,
 która aktywyje kolce do 
 śmierci"
+
+[node name="SpikesHidden" parent="." instance=ExtResource("6_ca0ot")]
+visible = false
+position = Vector2(96, 289)
+script = ExtResource("5_rgg46")

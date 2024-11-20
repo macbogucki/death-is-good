@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdttxxc7r53yu"]
+[gd_scene load_steps=8 format=3 uid="uid://bdttxxc7r53yu"]
 
+[ext_resource type="Script" path="res://bush.gd" id="1_dp2ds"]
 [ext_resource type="Texture2D" uid="uid://dqxo0o7vgi032" path="res://assets/tiles/bush.png" id="1_juxuv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imp1s"]
@@ -40,6 +41,7 @@ animations = [{
 [node name="bush" type="Area2D"]
 y_sort_enabled = true
 scale = Vector2(2, 2)
+script = ExtResource("1_dp2ds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -48,3 +50,5 @@ shape = SubResource("RectangleShape2D_imp1s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i3byv")
 autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

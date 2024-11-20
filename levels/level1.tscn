@@ -33,15 +33,16 @@ region_rect = Rect2(0, 0, 700, 500)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
+position = Vector2(64, 0)
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAAAAEAAAABAAEAAAABAAEAAAABAAAAAAACAAEAAAAAAAAAAAACAAIAAAABAAEAAAABAAIAAAABAAEAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAABAAMAAAABAAAAAAACAAMAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAAAAAAEAAMAAAABAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAABAAEAAAABAAEAAAABAAAAAAACAAEAAAAAAAAAAAACAAIAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAAAAAACAAMAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAAAAAAEAAMAAAABAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_qgdxh")
 
 [node name="Pit" parent="." instance=ExtResource("3_6aoyo")]
 position = Vector2(288, 160)
 
 [node name="Player" parent="." instance=ExtResource("1_0k004")]
-position = Vector2(24, 160)
+position = Vector2(88, 160)
 
 [node name="bush" parent="." instance=ExtResource("5_fbqkq")]
 position = Vector2(32, -32)
@@ -53,6 +54,7 @@ position = Vector2(352, 32)
 position = Vector2(-32, 288)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 472.0
 offset_top = 80.0
 offset_right = 664.0

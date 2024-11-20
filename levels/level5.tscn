@@ -33,6 +33,7 @@ region_rect = Rect2(0, 0, 700, 500)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -3
+position = Vector2(64, 0)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAAAAAIAAAAAAAEAAAABAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAACAAAAAAACAAIAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAABAAEAAAABAAUAAAABAAAAAAACAAUAAAAAAAEAAAADAAUAAAABAAAAAAADAAQAAAAAAAEAAAACAAQAAAAAAAEAAAABAAQAAAAAAAEAAAAAAAUAAAACAAAAAAAEAAUAAAACAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAACAAAAAAAHAAUAAAABAAEAAAAHAAQAAAAAAAEAAAAHAAMAAAABAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAACAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAABAAEAAAAFAAAAAAAAAAEAAAAEAAAAAAABAAEAAAADAAAAAAABAAEAAAADAAEAAAACAAAAAAAEAAEAAAACAAAAAAAFAAEAAAACAAAAAAAEAAIAAAACAAAAAAADAAIAAAAAAAAAAAADAAMAAAABAAAAAAAEAAMAAAACAAAAAAAFAAMAAAAAAAEAAAAFAAIAAAAAAAEAAAAGAAIAAAACAAAAAAAGAAMAAAAAAAEAAAAEAAQAAAAAAAAAAAAFAAQAAAABAAEAAAAGAAQAAAAAAAAAAAAHAAAAAAACAAAAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAAIAAIAAAABAAAAAAAIAAMAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_qgdxh")
@@ -43,6 +44,7 @@ y_sort_enabled = true
 position = Vector2(536, 160)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 600.0
 offset_top = 144.0
 offset_right = 792.0
@@ -86,7 +88,7 @@ position = Vector2(224, 88)
 position = Vector2(160, 288)
 
 [node name="bush23" parent="Elements" instance=ExtResource("4_8wj1p")]
-position = Vector2(32, 88)
+position = Vector2(99, 88)
 
 [node name="bush24" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(288, 344)
@@ -101,16 +103,16 @@ position = Vector2(288, 280)
 position = Vector2(160, 216)
 
 [node name="bush12" parent="Elements" instance=ExtResource("4_8wj1p")]
-position = Vector2(32, 344)
+position = Vector2(96, 344)
 
 [node name="bush13" parent="Elements" instance=ExtResource("4_8wj1p")]
-position = Vector2(32, 280)
+position = Vector2(96, 280)
 
 [node name="bush14" parent="Elements" instance=ExtResource("4_8wj1p")]
-position = Vector2(32, 216)
+position = Vector2(96, 216)
 
 [node name="bush15" parent="Elements" instance=ExtResource("4_8wj1p")]
-position = Vector2(32, 158)
+position = Vector2(96, 158)
 
 [node name="bush16" parent="Elements" instance=ExtResource("4_8wj1p")]
 position = Vector2(160, 88)
@@ -125,4 +127,4 @@ position = Vector2(544, 88)
 position = Vector2(416, 88)
 
 [node name="Pit" parent="Elements" instance=ExtResource("5_pd2ee")]
-position = Vector2(32, 32)
+position = Vector2(96, 32)

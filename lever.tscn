@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7digp2eeivmk"]
+
+[ext_resource type="Texture2D" uid="uid://d0ihvy2ui811p" path="res://assets/tiles/lever.png" id="1_6p8mc"]
+[ext_resource type="Script" path="res://lever.gd" id="1_gvwww"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqcne"]
+radius = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c4rl"]
+atlas = ExtResource("1_6p8mc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xxhi"]
+atlas = ExtResource("1_6p8mc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_la3s1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c4rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xxhi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lever" type="Area2D"]
+script = ExtResource("1_gvwww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_uqcne")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_la3s1")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

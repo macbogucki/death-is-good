@@ -8,6 +8,7 @@ var isInteractionPossible = true
 var destinationPosition = Vector2(0, 0)
 var isAnimationFinished = false
 var state = 0
+var isTimerStarted = false
 
 enum states {
 	IDLE = 0, 
@@ -30,31 +31,38 @@ func _physics_process(delta: float) -> void:
 			anim.play("Idle")
 			velocity.x = 0
 			velocity.y = 0
-			#position = currentPosition
+			
+			if game.moves > 0:
+				if Input.is_action_pressed("MoveUp"):									
+					destinationPosition[1] = currentPosition[1] - distanceInOneMove
+					if game.isMoveUpPossible(destinationPosition[1]):
+						state = states.MOVEUP
+						
+				if Input.is_action_pressed("MoveDown"):				
+					destinationPosition[1] = currentPosition[1] + distanceInOneMove
+					if game.isMoveDownPossible(destinationPosition[1]):
+						state = states.MOVEDOWN
+						
+				if Input.is_action_pressed("MoveLeft"):
+					destinationPosition[0] = currentPosition[0] - distanceInOneMove
+					if game.isMoveLeftPossible(destinationPosition[0]):
+						state = states.MOVELEFT
+						
+				if Input.is_action_pressed("MoveRight"):
+					destinationPosition[0] = currentPosition[0] + distanceInOneMove
+					if game.isMoveRightPossible(destinationPosition[0]):
+						state = states.MOVERIGHT
+						
+				if Input.is_action_pressed("Interaction"):
+					if isInteractionPossible:
+						state = states.PICKUP
+			
+			else:		
+				if isTimerStarted == false:
+					isTimerStarted = true
+					get_node("Timer").start()
 				
-			if Input.is_action_pressed("MoveUp"):									
-				destinationPosition[1] = currentPosition[1] - distanceInOneMove
-				if game.isMoveUpPossible(destinationPosition[1]):
-					state = states.MOVEUP
-					
-			if Input.is_action_pressed("MoveDown"):				
-				destinationPosition[1] = currentPosition[1] + distanceInOneMove
-				if game.isMoveDownPossible(destinationPosition[1]):
-					state = states.MOVEDOWN
-					
-			if Input.is_action_pressed("MoveLeft"):
-				destinationPosition[0] = currentPosition[0] - distanceInOneMove
-				if game.isMoveLeftPossible(destinationPosition[0]):
-					state = states.MOVELEFT
-					
-			if Input.is_action_pressed("MoveRight"):
-				destinationPosition[0] = currentPosition[0] + distanceInOneMove
-				if game.isMoveRightPossible(destinationPosition[0]):
-					state = states.MOVERIGHT
-					
-			if Input.is_action_pressed("Interaction"):
-				if isInteractionPossible:
-					state = states.PICKUP
+		
 	
 		states.MOVEUP:		
 			if destinationPosition[1] >= position.y:
@@ -104,10 +112,14 @@ func _physics_process(delta: float) -> void:
 			
 		
 		states.PICKUP:
+			velocity.x = 0
+			velocity.y = 0
 			anim.play("PickUp")
+			game.isInteraction = true
 			if isAnimationFinished:
 				state = states.IDLE
 				isAnimationFinished = false
+				game.isInteraction = false
 		
 		states.DEATH:
 			velocity.x = 0
@@ -118,10 +130,8 @@ func _physics_process(delta: float) -> void:
 				isAnimationFinished = false
 				game.changeLevel()
 			
-	if game.moves == 0:
-		velocity.x = 0
-		velocity.y = 0
-		game.gameover()
+	#if game.moves == 0:
+		
 		#game over
 		#state = states.DEATH
 			
@@ -135,3 +145,8 @@ func isPlayerLive():
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	isAnimationFinished = true
+
+
+func _on_timer_timeout() -> void:
+	print("koniec czasu")
+	game.gameover()

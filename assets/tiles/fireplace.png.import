@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyn2w5rhhrbjh"
-path="res://.godot/imported/light.png-86427202465df6201dbfc9df5f3cc65b.ctex"
+uid="uid://4m3iik04a85p"
+path="res://.godot/imported/fireplace.png-b7c7f564ed7e7ad40a55b021e8d5dd97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/light.png"
-dest_files=["res://.godot/imported/light.png-86427202465df6201dbfc9df5f3cc65b.ctex"]
+source_file="res://assets/tiles/fireplace.png"
+dest_files=["res://.godot/imported/fireplace.png-b7c7f564ed7e7ad40a55b021e8d5dd97.ctex"]
 
 [params]
 

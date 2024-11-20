@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgfbvb1a3djc2"]
+
+[ext_resource type="Texture2D" uid="uid://4m3iik04a85p" path="res://assets/tiles/fireplace.png" id="1_baxje"]
+[ext_resource type="Texture2D" uid="uid://cyn2w5rhhrbjh" path="res://assets/tiles/light.png" id="2_4v6uu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85gmf"]
+atlas = ExtResource("1_baxje")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egfr2"]
+atlas = ExtResource("1_baxje")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwchf"]
+atlas = ExtResource("1_baxje")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n24j"]
+atlas = ExtResource("1_baxje")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gyom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85gmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egfr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwchf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n24j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Fireplace" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0gyom")
+autoplay = "default"
+frame_progress = 0.528919
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+y_sort_enabled = true
+position = Vector2(3.8147e-06, -3.8147e-06)
+scale = Vector2(2, 2)
+texture = ExtResource("2_4v6uu")

@@ -41,11 +41,16 @@ func setGrid():
 			moves = 9
 			
 		4:
-			grid_size = Vector2(7,4)
+			grid_size = Vector2(4,4)
 			grid_position = Vector2(4,2)
 			moves = 9
 			
 		5:
+			grid_size = Vector2(9,6)
+			grid_position = Vector2(9,3)
+			moves = 11
+			
+		6:
 			grid_size = Vector2(9,6)
 			grid_position = Vector2(9,3)
 			moves = 11

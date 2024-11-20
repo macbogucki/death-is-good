@@ -38,6 +38,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAA
 tile_set = SubResource("TileSet_qgdxh")
 
 [node name="Player" parent="." instance=ExtResource("3_oap44")]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(536, 160)
 

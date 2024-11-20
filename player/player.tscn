@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cbha3t708xm4y" path="res://assets/player/Walk/Up.png" id="6_m5tkv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rub7t"]
+radius = 17.0
+height = 56.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wo7b1"]
 atlas = ExtResource("2_c7esh")
@@ -517,12 +519,13 @@ _data = {
 script = ExtResource("1_bphm2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -1)
 shape = SubResource("CapsuleShape2D_rub7t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -7)
 sprite_frames = SubResource("SpriteFrames_riut6")
-animation = &"Dead"
+animation = &"Idle"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]

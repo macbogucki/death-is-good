@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
-const distanceInOneMove = 64
+const SPEED = 120.0
+const distanceInOneMove = 64.0
 @onready var anim = $AnimationPlayer
 
 var isInteractionPossible = true
@@ -30,11 +30,11 @@ func _physics_process(delta: float) -> void:
 			anim.play("Idle")
 			velocity.x = 0
 			velocity.y = 0
-			
+			#position = currentPosition
+				
 			if Input.is_action_pressed("MoveUp"):									
 				destinationPosition[1] = currentPosition[1] - distanceInOneMove
 				if game.isMoveUpPossible(destinationPosition[1]):
-					#print(destinationPosition)
 					state = states.MOVEUP
 					
 			if Input.is_action_pressed("MoveDown"):				
@@ -57,36 +57,51 @@ func _physics_process(delta: float) -> void:
 					state = states.PICKUP
 	
 		states.MOVEUP:		
-			velocity.y = -1 * SPEED
-			anim.play("WalkUp")
-			if destinationPosition[1] >= currentPosition[1]:
+			if destinationPosition[1] >= position.y:
+				velocity.y = 0
 				if isPlayerLive():
 					state = states.IDLE
 					game.decreaseMove()
+			else:
+				velocity.y = -1 * SPEED
+				position.y += velocity.y * delta
+				anim.play("WalkUp")
 			
-		states.MOVEDOWN:
-			velocity.y = 1 * SPEED
-			anim.play("WalkDown")
-			if destinationPosition[1] <= currentPosition[1]:
+			
+		states.MOVEDOWN:			
+			if destinationPosition[1] <= position.y:
+				velocity.y = 0
 				if isPlayerLive():
 					state = states.IDLE
 					game.decreaseMove()
-			
+			else:
+				velocity.y = 1 * SPEED
+				position.y += velocity.y * delta
+				anim.play("WalkDown")
+				
 		states.MOVELEFT:
-			velocity.x = -1 * SPEED
-			anim.play("WalkLeft")	
-			if destinationPosition[0] >= currentPosition[0]:
+			if destinationPosition[0] >= position.x:
+				velocity.x = 0
 				if isPlayerLive():
 					state = states.IDLE
 					game.decreaseMove()
+			else:		
+				velocity.x = -1 * SPEED
+				position.x += velocity.x * delta
+				anim.play("WalkLeft")	
+			
 			
 		states.MOVERIGHT:
-			velocity.x = 1 * SPEED
-			anim.play("WalkRight")
-			if destinationPosition[0] <= currentPosition[0]:	
+			if destinationPosition[0] <= position.x:
+				velocity.x = 0				
 				if isPlayerLive():			
 					state = states.IDLE
 					game.decreaseMove()
+			else:	
+				velocity.x = 1 * SPEED		
+				position.x += velocity.x * delta	
+				anim.play("WalkRight")
+			
 		
 		states.PICKUP:
 			anim.play("PickUp")

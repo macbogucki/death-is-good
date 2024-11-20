@@ -131,6 +131,7 @@ func load_new_scene():
 	var new_scene = load(scene_path).instantiate()
 	game_container.add_child(new_scene)
 	$wroc.show()
+	game.setGrid()
 
 func _on_texture_button_pressed() -> void:
 	game.level=1

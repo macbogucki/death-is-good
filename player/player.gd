@@ -9,6 +9,7 @@ var destinationPosition = Vector2(0, 0)
 var isAnimationFinished = false
 var state = 0
 var isTimerStarted = false
+var playDeathOncce = true
 
 enum states {
 	IDLE = 0, 
@@ -125,11 +126,15 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 			velocity.y = 0
 			anim.play("Death")
-			$DeathSound.play()
-			if isAnimationFinished:
+			if playDeathOncce:
+				$DeathSound.play()
+				playDeathOncce = false
+			if not $DeathSound.playing:
 				state = states.IDLE
 				isAnimationFinished = false
+				playDeathOncce = true
 				game.changeLevel()
+
 			
 	#if game.moves == 0:
 		

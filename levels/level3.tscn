@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://fui6wv8r2n63" path="res://assets/tiles/grassbackground.svg" id="1_a7fja"]
 [ext_resource type="Texture2D" uid="uid://etxk527sv3bo" path="res://assets/tiles/grass.png" id="2_e6x4m"]
 [ext_resource type="PackedScene" uid="uid://gsmnrst11jtl" path="res://player/player.tscn" id="3_s4vka"]
-[ext_resource type="PackedScene" path="res://bush.tscn" id="4_0mwx6"]
-[ext_resource type="PackedScene" path="res://pit.tscn" id="5_q4lfd"]
-[ext_resource type="PackedScene" path="res://spikes.tscn" id="6_dljdv"]
+[ext_resource type="PackedScene" uid="uid://bdttxxc7r53yu" path="res://bush.tscn" id="4_0mwx6"]
+[ext_resource type="PackedScene" uid="uid://d1tcmgq5n2b82" path="res://pit.tscn" id="5_q4lfd"]
+[ext_resource type="PackedScene" uid="uid://b87x8sqwvgkag" path="res://spikes.tscn" id="6_dljdv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aq51g"]
 texture = ExtResource("2_e6x4m")

@@ -10,6 +10,7 @@ var	board = []
 var isInteraction = false
 var isActiveLever = false
 var number_of_levels = 6
+var keys = 0
 
 @onready var main_scene = get_tree().current_scene
 
@@ -52,7 +53,7 @@ func setGrid():
 			
 		5:
 			grid_size = Vector2(9,6)
-			grid_position = Vector2(9,3)
+			grid_position = Vector2(8,3)
 			moves = 11
 			
 		6:
@@ -82,7 +83,6 @@ func deathPlayer():
 	isPlayerAlive = false
 	
 func isMoveUpPossible(destination: float):
-	print(grid_position.y)
 	if grid_position.y > 1:
 		grid_position.y -= 1
 		return true

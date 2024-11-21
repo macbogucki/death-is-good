@@ -125,12 +125,13 @@ func _physics_process(delta: float) -> void:
 		states.DEATH:
 			velocity.x = 0
 			velocity.y = 0
+
 			anim.play("Death")
 			if playDeathOncce:
 				$DeathSound.play()
 				playDeathOncce = false
 			if not $DeathSound.playing:
-				state = states.IDLE
+				#state = states.IDLE
 				isAnimationFinished = false
 				playDeathOncce = true
 				game.changeLevel()

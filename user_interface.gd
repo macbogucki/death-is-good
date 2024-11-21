@@ -5,9 +5,13 @@ extends Control
 @onready var ustawienia_open = false
 @onready var game_container = $GameContainer
 @onready var lang = "english"
+var custom_cursor = preload("res://assets/interface/cursor_image.svg")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	Input.set_custom_mouse_cursor(custom_cursor, Input.CURSOR_ARROW)
+	for i in range(11):
+		if i>game.number_of_levels:
+			$menu_levels.get_node("PanelContainer" + str(i)).hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -132,27 +136,28 @@ func load_new_scene():
 	game_container.add_child(new_scene)
 	$wroc.show()
 	game.setGrid()
+	$ruchy.show()
 
 func _on_texture_button_pressed() -> void:
-	game.level=1
-	load_new_scene()
-	print("h")
+	game.level=0
+	game.changeLevel()
 	
 
 
 func _on_menu_levels_visibility_changed() -> void:
 	for i in range(game.unlocked): 
 		i = i+1;
-		var control_panel = $menu_levels.get_node("PanelContainer" + str(i))
-		control_panel.get_node("TextureButton").show()
-		control_panel.get_node("Label").show()
-		control_panel.get_node("TextureRect").hide()
+		if i <= game.number_of_levels:
+			var control_panel = $menu_levels.get_node("PanelContainer" + str(i))
+			control_panel.get_node("TextureButton").show()
+			control_panel.get_node("Label").show()
+			control_panel.get_node("TextureRect").hide()
 		
 
 
 func _on_texture_button_pressed2() -> void:
-	game.level=2
-	load_new_scene()
+	game.level=1
+	game.changeLevel()
 
 
 func _on_back_start_button_pressed() -> void:
@@ -161,18 +166,18 @@ func _on_back_start_button_pressed() -> void:
 
 
 func _on_texture_button_pressed3() -> void:
-	game.level=3
-	load_new_scene()
+	game.level=2
+	game.changeLevel()
 
 
 func _on_texture_button_pressed4() -> void:
-	game.level=4
-	load_new_scene()
+	game.level=3
+	game.changeLevel()
 
 
 func _on_texture_button_pressed5() -> void:
-	game.level=5
-	load_new_scene()
+	game.level=4
+	game.changeLevel()
 
 
 func _on_wroc_pressed() -> void:
@@ -180,13 +185,15 @@ func _on_wroc_pressed() -> void:
 	for child in game_container.get_children():
 		child.queue_free()
 	$wroc.hide()
+	$ruchy.hide()
 	
 
+func moves_update():
+	$ruchy/liczba_ruchow.text = str(game.moves)
 
 func _on_language_button_item_selected(index: int) -> void:
 	if index == 1:
 		lang = "polish"
-		$menu_start/nazwa_gry.text = "Nazwa tej gry"
 		$menu_levels/Label.text = "Wybierz poziom"
 		$Ustawienia/settings_button2.text = "Ustawienia"
 		$Ustawienia/contols_button.text = "Sterowanie"
@@ -206,9 +213,11 @@ func _on_language_button_item_selected(index: int) -> void:
 		$Ustawienia/Controls/left_bind/left_bind_button.text = "Zmień"
 		$Ustawienia/Controls/interaction_bind/Label_interaction.text = "Interakcja"
 		$Ustawienia/Controls/interaction_bind/interaction_bind_button.text = "Zmień"
+		$ruchy.text = "Ruchy: "
+		$zwyciestwo/Label.text = "Zwycięstwo"
+		$porazka/Label.text = "Koniec ruchów"
 	else:
 		lang = "english"
-		$menu_start/nazwa_gry.text = "Title of this game"
 		$menu_levels/Label.text = "Choose level"
 		$Ustawienia/settings_button2.text = "Settings"
 		$Ustawienia/contols_button.text = "Controls"
@@ -228,3 +237,48 @@ func _on_language_button_item_selected(index: int) -> void:
 		$Ustawienia/Controls/left_bind/left_bind_button.text = "Change"
 		$Ustawienia/Controls/interaction_bind/Label_interaction.text = "Interaction"
 		$Ustawienia/Controls/interaction_bind/interaction_bind_button.text = "Change"
+		$ruchy.text = "Moves:"
+		$zwyciestwo/Label.text = "You won"
+		$porazka/Label.text = "Run out of moves"
+
+
+func _on_texture_button_pressed6() -> void:
+	game.level=5
+	game.changeLevel()
+
+
+func _on_texture_button_pressed7() -> void:
+	game.level=6
+	game.changeLevel()
+
+
+func _on_texture_button_pressed8() -> void:
+	game.level=7
+	game.changeLevel()
+
+
+func _on_texture_button_pressed9() -> void:
+	game.level=8
+	game.changeLevel()
+
+
+func _on_texture_button_pressed10() -> void:
+	game.level=9
+	game.changeLevel()
+
+
+func koniec(wynik):
+	get_node("czas").start()
+	if wynik == 1:
+		$zwyciestwo.show()
+		$menu_levels.hide()
+	else: 
+		$porazka.show()
+
+func _on_czas_timeout() -> void:
+	$zwyciestwo.hide()
+	$porazka.hide()
+	
+func zamknij_poziom():
+	for child in game_container.get_children():
+		child.queue_free()

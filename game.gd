@@ -9,14 +9,17 @@ var grid_position = Vector2(0,0)
 var	board = []
 var isInteraction = false
 var isActiveLever = false
+var number_of_levels = 6
 
 @onready var main_scene = get_tree().current_scene
 
 func decreaseMove():
 	moves -= 1
+	main_scene.moves_update()
 
 func gameover():
 	main_scene._on_wroc_pressed()
+	main_scene.koniec(0)
 	moves=10
 	
 	
@@ -56,6 +59,7 @@ func setGrid():
 			grid_size = Vector2(9,6)
 			grid_position = Vector2(9,3)
 			moves = 11
+	main_scene.moves_update()
 			
 func changeLevel():
 	isPlayerAlive = true
@@ -63,7 +67,11 @@ func changeLevel():
 	if unlocked == level: 
 		unlocked += 1
 	level += 1
-	main_scene.load_new_scene()
+	if level <= number_of_levels:
+		main_scene.load_new_scene()
+	else: 
+		main_scene.zamknij_poziom()
+		main_scene.koniec(1)
 	#else:
 	#	get_tree
 	

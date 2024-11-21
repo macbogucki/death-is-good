@@ -52,7 +52,6 @@ scale = Vector2(2.9375, 2.8125)
 texture = ExtResource("4_mjxn2")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.197937, 0.197937, 0.197937, 1)
 
 [node name="Fireplace" parent="." instance=ExtResource("5_salx8")]

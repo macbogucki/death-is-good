@@ -11,6 +11,7 @@ var isInteraction = false
 var isActiveLever = false
 var number_of_levels = 6
 var keys = 0
+var isObstacle = false
 
 @onready var main_scene = get_tree().current_scene
 
@@ -35,31 +36,38 @@ func setGrid():
 			grid_size = Vector2(5,3)
 			grid_position = Vector2(1,2)
 			moves = 5
-	
+			isObstacle = false
 		2:
 			grid_size = Vector2(3,6)
 			grid_position = Vector2(2,1)
 			moves = 7
-		
+			isObstacle = false
 		3:
 			grid_size = Vector2(7,4)
 			grid_position = Vector2(4,4)
 			moves = 9
-			
+			isObstacle = false
 		4:
 			grid_size = Vector2(4,4)
 			grid_position = Vector2(4,2)
 			moves = 10
-			
+			isObstacle = false
 		5:
 			grid_size = Vector2(9,6)
 			grid_position = Vector2(8,3)
 			moves = 11
-			
+			isObstacle = false
 		6:
 			grid_size = Vector2(9,6)
-			grid_position = Vector2(9,3)
-			moves = 11
+			grid_position = Vector2(8,3)
+			moves = 23
+			board = [[0,0,0,0,1,1,0,0,0],
+					 [1,1,1,0,1,1,1,0,1],
+					 [1,1,1,0,1,1,1,0,1],
+					 [0,1,1,0,0,0,1,0,1],
+					 [0,0,0,0,0,0,0,0,1],
+					 [0,1,1,0,0,0,1,1,1]]
+			isObstacle = true
 	main_scene.moves_update()
 			
 func changeLevel():
@@ -84,27 +92,59 @@ func deathPlayer():
 	
 func isMoveUpPossible(destination: float):
 	if grid_position.y > 1:
-		grid_position.y -= 1
-		return true
+		if isObstacle == false:
+			grid_position.y -= 1
+			return true
+		else:
+			print(board[grid_position.y - 2][grid_position.x - 1])
+			if board[grid_position.y - 2][grid_position.x - 1] == 1:
+				return false
+			else:
+				grid_position.y -= 1
+				return true
 	else:
 		return false
 	
 func isMoveDownPossible(destination: float):
 	if grid_position.y < grid_size.y:
-		grid_position.y += 1
-		return true
+		if isObstacle == false:
+			grid_position.y += 1
+			return true
+		else:
+			print(board[grid_position.y][grid_position.x - 1])
+			if board[grid_position.y][grid_position.x - 1] == 1:
+				return false
+			else:
+				grid_position.y += 1
+				return true
 	else:
 		return false
 	
 func isMoveLeftPossible(destination: float):
 	if grid_position.x > 1:
-		grid_position.x -= 1
-		return true
+		if isObstacle == false:
+			grid_position.x -= 1
+			return true
+		else:
+			print(board[grid_position.y - 1][grid_position.x - 2])
+			if board[grid_position.y - 1][grid_position.x - 2] == 1:
+				return false
+			else:
+				grid_position.x -= 1
+				return true
 	else:
 		return false
 func isMoveRightPossible(destination: float):
 	if grid_position.x < grid_size.x:
-		grid_position.x += 1
-		return true
+		if isObstacle == false:
+			grid_position.x += 1
+			return true
+		else:
+			print(board[grid_position.y - 1][grid_position.x])
+			if board[grid_position.y - 1][grid_position.x] == 1:
+				return false
+			else:
+				grid_position.x += 1
+				return true
 	else:
 		return false

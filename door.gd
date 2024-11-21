@@ -1,8 +1,9 @@
-extends Area2D
+extends StaticBody2D
 
 
 
-func _on_body_entered(body: Node2D) -> void:
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if game.keys > 0:
 		game.keys -= 1
 		var tween = get_tree().create_tween()

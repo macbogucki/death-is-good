@@ -125,6 +125,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 			velocity.y = 0
 			anim.play("Death")
+			$DeathSound.play()
 			if isAnimationFinished:
 				state = states.IDLE
 				isAnimationFinished = false

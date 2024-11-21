@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://gsmnrst11jtl"]
+[gd_scene load_steps=53 format=3 uid="uid://gsmnrst11jtl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_bphm2"]
 [ext_resource type="Texture2D" uid="uid://dsrfgngm15xv" path="res://assets/player/Die/Down.png" id="2_c7esh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cl2dlrjjhmynl" path="res://assets/player/Walk/Left.png" id="4_3hjn3"]
 [ext_resource type="Texture2D" uid="uid://cfcluc7h7ooah" path="res://assets/player/Walk/Right.png" id="5_vl4l7"]
 [ext_resource type="Texture2D" uid="uid://cbha3t708xm4y" path="res://assets/player/Walk/Up.png" id="6_m5tkv"]
+[ext_resource type="AudioStream" uid="uid://dmgsbqbyyu86m" path="res://player/death.wav" id="9_5q6u1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rub7t"]
 radius = 17.0
@@ -544,6 +545,10 @@ libraries = {
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5q6u1")
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
